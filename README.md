@@ -41,7 +41,6 @@ Cloud and Systems Architect with 15+ years of experience in designing, automatin
 ## Professional Experience
 
 ### Senior Integration & Solutions Architect  
-**DXC / Luxoft – Coppell, TX** *(Jan 2020 – Present)*
 
 - Architected a SOC-compliant SaaS platform on AWS using EC2, Lambda, S3, VPC, IAM, and CloudFormation.  
 - Designed centralized SIEM using OpenSearch, Lambda, and Kinesis with real-time dashboards for security monitoring.  
@@ -52,7 +51,7 @@ Cloud and Systems Architect with 15+ years of experience in designing, automatin
 - Implemented proactive alerting and auto-remediation for high-availability systems.  
 
 ### Professional Systems Administrator – Lead  
-**DXC / AT&T – Plano, TX** *(Oct 2015 – Dec 2019)*
+
 
 - Designed secure Linux/UNIX-based enterprise platforms using IBM DB2, Red Hat, and WebLogic.  
 - Built containerized environments with Docker and Kubernetes for internal service deployment.  
@@ -60,7 +59,6 @@ Cloud and Systems Architect with 15+ years of experience in designing, automatin
 - Participated in disaster recovery drills and multi-region failover testing.  
 
 ### Infrastructure Administrator / Architect  
-**FirstTek / DTCC – Coppell, TX** *(Jan 2012 – Oct 2015)*
 
 - Managed 200+ RHEL servers hosting IBM InfoSphere and DB2 across virtualized vBlock environments.  
 - Transitioned legacy applications from AIX to Linux.  
