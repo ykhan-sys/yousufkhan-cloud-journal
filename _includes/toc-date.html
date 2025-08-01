@@ -48,21 +48,31 @@
 
             <li class="divider"></li>
 
-            {%- assign posts_by_category = site.posts | group_by_exp: "post", "post.categories | join: ','" -%}
-            {% for category in posts_by_category %}
-                {% assign cat_name = category.name | downcase %}
-                {% if cat_name != "" %}
+            {%- assign all_categories = "" | split: "" -%}
+            {% for post in site.posts %}
+              {% for cat in post.categories %}
+                {% unless all_categories contains cat %}
+                  {% assign all_categories = all_categories | push: cat %}
+                {% endunless %}
+              {% endfor %}
+            {% endfor %}
+
+            {% assign all_categories = all_categories | sort %}
+            {% for cat in all_categories %}
+              {% if cat != "" %}
                 <li class="chapter" data-level="2" data-path="#">
-                    <span style="font-weight:bold; cursor:pointer;">{{ cat_name | capitalize }}</span>
-                    <ul>
-                        {% for post in category.items %}
+                  <span style="font-weight:bold; cursor:pointer;">{{ cat | capitalize }}</span>
+                  <ul>
+                    {% for post in site.posts %}
+                      {% if post.categories contains cat %}
                         <li class="chapter{% if page.url == post.url %} active{% endif %}" data-level="2.1" data-path="{{site.baseurl}}{{post.url}}">
-                            <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">{{ post.title | escape }}</a>
+                          <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">{{ post.title | escape }}</a>
                         </li>
-                        {% endfor %}
-                    </ul>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
                 </li>
-                {% endif %}
+              {% endif %}
             {% endfor %}
         </ul>
     </nav>
