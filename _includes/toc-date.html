@@ -57,18 +57,19 @@
               {% endfor %}
             {% endfor %}
 
-            {% assign all_categories = all_categories | sort %}
+            {% assign all_categories = all_categories | sort_natural %}
             {% for cat in all_categories %}
               {% if cat != "" %}
-                <li class="chapter" data-level="2" data-path="#">
-                  <span style="font-weight:bold; cursor:pointer;">{{ cat | capitalize }}</span>
+                {% assign cat_url = "/" | append: cat | downcase | append: "/" %}
+                <li class="chapter" data-level="2" data-path="{{site.baseurl}}{{cat_url}}">
+                  <a href="{{site.baseurl}}{{cat_url}}" style="font-weight:bold;">{{ cat | capitalize }}</a>
                   <ul>
-                    {% for post in site.posts %}
-                      {% if post.categories contains cat %}
-                        <li class="chapter{% if page.url == post.url %} active{% endif %}" data-level="2.1" data-path="{{site.baseurl}}{{post.url}}">
-                          <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">{{ post.title | escape }}</a>
-                        </li>
-                      {% endif %}
+                    {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains '" | append: cat | append: "'" %}
+                    {% assign cat_posts = cat_posts | sort: 'date' | reverse %}
+                    {% for post in cat_posts %}
+                      <li class="chapter{% if page.url == post.url %} active{% endif %}" data-level="2.1" data-path="{{site.baseurl}}{{post.url}}">
+                        <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">{{ post.title }}</a>
+                      </li>
                     {% endfor %}
                   </ul>
                 </li>
