@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Yousuf Khan
+title: Yousuf Khan Resume
 permalink: /
 ---
 
