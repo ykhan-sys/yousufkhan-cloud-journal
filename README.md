@@ -6,7 +6,7 @@ permalink: /
 
 # Yousuf Khan
 **Cloud & Systems Architect**  
-Dallas, TX | [Email] | [LinkedIn URL] | [GitHub URL]
+Dallas, TX | hello@yousufkhanpro.com
 
 ---
 
